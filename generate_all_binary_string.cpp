@@ -64,6 +64,34 @@ public:
     }
 };
 
+/*ANOTHER SOLUTION
+void helper(string str, int i, int prev, int n){
+        if(i==n){
+           cout << str << " ";
+           return;
+        }
+        
+        if(prev==-1){
+            helper(str+'0',i+1,0,n);
+            helper(str+'1',i+1,1,n);
+        }
+        else if(prev==0){
+            helper(str+'0',i+1,0,n);
+            helper(str+'1',i+1,1,n);
+        }
+        else {
+             helper(str+'0',i+1,0,n);
+        }
+    }
+    
+    void generateBinaryStrings(int& num){
+        int i = 0;
+        int n = num;
+        helper("",i,-1,n);
+    }
+};
+*/
+
 //{ Driver Code Starts.
 int main(){
     int t = 1;
