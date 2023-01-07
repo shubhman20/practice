@@ -10,29 +10,32 @@
  */
 class Solution {
 public:
+    int count(ListNode* head){
+        int count=0;
+        ListNode* t=head;
+        while(t!=NULL){
+            t=t->next;
+            count++;
+        }
+        return count;
+    }
     ListNode* deleteMiddle(ListNode* head) {
-        if(head==NULL||head->next==NULL) return NULL;
+        if(head->next==NULL) return NULL;
         if(head->next->next==NULL){
-            ListNode*temp;
-            // temp=head;
-            temp=head->next;
             head->next=NULL;
-            delete temp;
             return head;
         }
-        ListNode* s = head->next;
-        ListNode* f = head->next->next;
-        while(f!=NULL && f->next!=NULL){
-            s = s->next;
-            f = f->next->next;
+        int val=count(head);
+        val = val/2;
+        ListNode*temp;
+        temp=head;
+        int count=0;
+        while(count<val-1){
+            count++;
+            temp=temp->next;
         }
-        ListNode *t;
-        t=head;
-        while(t->next!=s){
-            t = t->next;
-        }
-        t->next = s->next;
-        delete s;
+        temp->next=temp->next->next;
         return head;
+        
     }
 };
