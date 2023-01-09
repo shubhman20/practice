@@ -8,24 +8,12 @@
  */
 class Solution {
 public:
-    int count(ListNode* a){
-        ListNode* t;
-        t=a;
-        int cnt=0;
-        while(t!=NULL){
-            t=t->next;
-            cnt++;
-        }
-        return cnt;
-    }
 
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int a = count(headA);
-        int b = count(headB);
         ListNode* h1;
         ListNode* temp;
         ListNode* brokelink;
-        if(a<=b){
+
             h1=headB;
             temp=h1;
             while(temp->next!=NULL){
@@ -33,16 +21,6 @@ public:
             }
             brokelink=temp;
             temp->next=headA;
-        }
-        else{
-            h1=headA;
-            temp=h1;
-            while(temp->next!=NULL){
-                temp=temp->next;
-            }
-            brokelink=temp;
-            temp->next=headB;
-        }
         if(h1==NULL||h1->next==NULL)
             return h1;
         ListNode* h2=h1->next->next;
