@@ -32,6 +32,5 @@ public:
             }
         }
         return dis;
-        
     }
 };
