@@ -53,3 +53,21 @@ int f(int n,vector<int>&nums,vector<vector<int>>&dp){
         }
         return prev[0];
     }
+
+
+//Another Approach
+    int longestSubsequence(int n, int a[])
+    {
+       // your code here
+       vector<int> dp(n,1);
+       int maxi=0;
+       for(int i=0;i<n;i++){
+           for(int j=0;j<=i-1;j++){
+               if(a[j]<a[i]){
+                   dp[i] = max(dp[i],1+dp[j]);
+               }
+               if(dp[i]>maxi) maxi=dp[i];
+           }
+       }
+       return maxi;
+    }
